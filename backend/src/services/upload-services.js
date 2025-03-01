@@ -13,6 +13,16 @@ const saveFile = async (fileData) => {
     }
 };
 
+const getDocument = async (userid)=>{
+    try {
+        const documents = await uploadRepo.getDocumentByUserId(userid);
+        return documents;
+    } catch (error) {
+        console.log("Service leyer error",error);
+        throw error;
+    }
+}
+
 // exports.getAllFiles = async () => {
 //     try {
 //         return await uploadRepo.fetchFiles();
@@ -22,5 +32,6 @@ const saveFile = async (fileData) => {
 // };
 
 module.exports = {
-    saveFile
+    saveFile,
+    getDocument
 }

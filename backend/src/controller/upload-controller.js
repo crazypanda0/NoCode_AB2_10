@@ -1,4 +1,5 @@
 const uploadServices = require('../services/upload-services.js')
+const {getDocument} = require('../services/upload-services.js')
 const mongoose = require('mongoose');
 
 const uploadFile = async (req,res)=>{
@@ -48,6 +49,28 @@ const uploadFile = async (req,res)=>{
     }
 };
 
+const fetchDocument = async(req,res)=>{
+    try {
+        const response = await getDocument(req.query.userid);
+        console.log("1::",req.query.userid);
+        console.log("2::",response);
+        return res.status(201).json({
+            data:response,
+            success:true,
+            message: "successfully fetched content",
+            err: {}
+        });
+    } catch (error) {
+        res.status(500).json({
+            data:{},
+            success:false,
+            err:error,
+            message:'Unable to fetch the files'
+        });
+    }
+};
+
 module.exports = {
-    uploadFile
+    uploadFile,
+    fetchDocument
 }

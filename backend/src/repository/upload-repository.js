@@ -12,6 +12,16 @@ class uploadRepository {
             throw error;
         }
     }
+
+    async getDocumentByUserId(userid){
+        try {
+            const documents = await Document.find({user_id:userid});
+            return documents;
+        } catch (error) {
+            console.log("something went wrong at repo layer",error);
+            throw error;
+        }
+    }
 };
 
 module.exports = uploadRepository;
