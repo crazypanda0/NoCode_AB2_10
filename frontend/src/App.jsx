@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import SignIn from "./components/SignIn"
 import SignUp from "./components/SignUp"
 import Dashboard from "./components/Dashboard"
+import UploadImage from "./components/UploadImage"
 
 function App() {
 
