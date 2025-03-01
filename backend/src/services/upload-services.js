@@ -2,7 +2,7 @@ const uploadRepository = require('../repository/upload-repository.js');
 
 const uploadRepo = new uploadRepository();
 
-saveFile = async (fileData) => {
+const saveFile = async (fileData) => {
     try {
         console.log("Service Layer Called", fileData);
         const response = await uploadRepo.storeFile(fileData);
